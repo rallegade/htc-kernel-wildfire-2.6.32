@@ -93,6 +93,8 @@ static int __init msm_cpufreq_init(struct cpufreq_policy *policy)
 
 	BUG_ON(cpufreq_frequency_table_cpuinfo(policy, table));
 	policy->cur = acpuclk_get_rate();
+	/* move to 518400 for boot */
+	policy->max = 518400;
 #if 0
 	/* restrict cpu freq scaling range by overwriting */
 	policy->min = CONFIG_MSM_CPU_FREQ_ONDEMAND_MIN;
